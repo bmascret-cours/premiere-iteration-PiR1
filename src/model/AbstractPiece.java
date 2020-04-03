@@ -8,9 +8,10 @@ public abstract class AbstractPiece implements Pieces {
 	private Coord coord;
 	
 	
-	public AbstractPiece (Couleur couleur, Coord coord) {
+	public AbstractPiece (String name, Couleur couleur, Coord coord) {
 		this.couleur = couleur;
 		this.coord = coord;
+		this.name=name;
 	}
 	
 	public int getX() {
@@ -26,7 +27,7 @@ public abstract class AbstractPiece implements Pieces {
 	}
 	
 	public boolean move(int x, int y) {
-		if (this.coord.coordonnees_valides(x, y)) {
+		if (this.coord.coordonnees_valides(x, y) && (this.coord.x != x || this.coord.y !=y) && this.isMoveOk(x,y)) {
 			this.coord.x=x;
 			this.coord.y=y;
 			return true;
@@ -38,7 +39,7 @@ public abstract class AbstractPiece implements Pieces {
 	
 	public boolean capture() {
 		this.coord.x = -1;
-		this.coord.y=-1;
+		this.coord.y = -1;
 		return true;
 	}
 	
@@ -48,8 +49,14 @@ public abstract class AbstractPiece implements Pieces {
 	
 	public abstract boolean isMoveOk(int xFinal, int yFinal);
 	
-	public void main() {
-		Pieces maTour = new Tour(Couleur.NOIR, new Coord(0,0));
+	public static void main(String[] args) {
+		Pieces maTour = new Pion(Couleur.NOIR, new Coord(0,0));
 		System.out.println(maTour.toString());
+		maTour.move(4,1);
+		System.out.println(maTour.toString());
+		maTour.move(0,2);
+		System.out.println(maTour.toString());
+		maTour.move(0,3);
+		System.out.println(maTour.move(0,2));
 	}
 }
