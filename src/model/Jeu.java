@@ -68,12 +68,17 @@ public class Jeu {
 
     public Couleur getPieceColor(int x, int y) {
         Pieces p = findPiece(x, y);
-        return p.getCouleur();
+        if(p != null){
+            return p.getCouleur();
+        }
+        return Couleur.NOIRBLANC;
     }
 
     public String getPieceType(int x, int y) {
         Pieces p = findPiece(x, y);
-        return p.getClass().getSimpleName();
+        if(p != null)
+            return p.getClass().getSimpleName();
+        return null;
     }
 
     public Couleur getCouleur() {
@@ -156,7 +161,6 @@ public class Jeu {
         System.out.println(wl);
 
         System.out.println(bl);
-
         System.out.println(wl.move(4, 6, 4, 4));
         System.out.println(wl.move(4, 4, 4, 3));
         System.out.println(wl.isPieceHere(4, 3));
