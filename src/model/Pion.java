@@ -13,24 +13,28 @@ public class Pion extends AbstractPiece implements Pions{
         if(Coord.coordonnees_valides(xFinal,yFinal) && this.getX() == xFinal) {
             if (this.getCouleur().equals(Couleur.BLANC)) {
                 if (yFinal == (this.getY() - 1)) {
-                    hasMoved = true;
                     return true;
                 } else if (!hasMoved && yFinal == this.getY() - 2) {
-                    hasMoved = true;
                     return true;
                 }
             } else {
                 if (yFinal == this.getY() + 1) {
-                    hasMoved = true;
                     return true;
                 } else if (!hasMoved && yFinal == this.getY() + 2) {
-                    hasMoved = true;
                     return true;
                 }
             }
         }
         return  false;
 
+    }
+
+    @Override
+    public boolean move(int xFinal, int yFinal) {
+        boolean moveRet = super.move(xFinal, yFinal);
+        if(moveRet)
+            hasMoved = true;
+        return moveRet;
     }
 
     @Override
