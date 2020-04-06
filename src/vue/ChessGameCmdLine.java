@@ -35,7 +35,7 @@ public class ChessGameCmdLine implements Observer{
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		
-		System.out.println(chessGameControler.getMessage() + "\n");	
+		System.out.println(chessGameControler.getMessage() + "\n");
 
 		List<PieceIHM> piecesIHM = (List<PieceIHM>) arg1;
 
@@ -81,7 +81,7 @@ public class ChessGameCmdLine implements Observer{
 		// dans ce cas, update non appelé et pas d'affichage 
 		// controleur empêche le move car pas le bon joueur
 		System.out.print("\n Déplacement de 3,4 vers 3,6 = ");		
-		chessGameControler.move(new Coord(3,4), new Coord(3, 6));	// false 
+		chessGameControler.move(new Coord(3,4), new Coord(3, 6));	// false
 
 		System.out.print("\n Déplacement de 4,1 vers 4,3 = ");
 		chessGameControler.move(new Coord(4, 1), new Coord(4, 3));	// true

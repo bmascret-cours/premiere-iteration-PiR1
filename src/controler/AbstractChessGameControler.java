@@ -64,7 +64,7 @@ public abstract class AbstractChessGameControler implements ChessGameControlers 
 
 	// Déplacement métier
 	protected  boolean moveModel(Coord initCoord, Coord finalCoord)  {	
-		return chessGame.move(initCoord.x, initCoord.y, finalCoord.x, finalCoord.y);	
+		return this.chessGame.move(initCoord.x, initCoord.y, finalCoord.x, finalCoord.y);
 	}
 
 	protected abstract void endMove(Coord initCoord, Coord finalCoord, String promotionType) ;
@@ -76,7 +76,7 @@ public abstract class AbstractChessGameControler implements ChessGameControlers 
 
 	public String getMessage() {
 		String ret = null;		 
-		ret = this.chessGame.getMessage();	 
+		ret = this.chessGame.getMessage();
 		return ret;
 	}
 
