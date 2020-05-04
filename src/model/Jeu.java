@@ -6,6 +6,7 @@ import java.util.LinkedList;
 public class Jeu {
     Couleur color;
     List<Pieces> pieces;
+    private boolean isCapturePossible = false;
 
     boolean rockKing;
 
@@ -50,12 +51,18 @@ public class Jeu {
 
     //ToDo
     public void setPossibleCapture() {
+        isCapturePossible = true;
         return;
     }
 
     //ToDo
-    public boolean capture(int x, int y) {
-        return true;
+    boolean	capture(int xCatch, int yCatch) {
+        boolean capture = false;
+        Pieces piece = findPiece(xCatch, yCatch);
+        if(piece != null) {
+            capture = piece.capture();
+        }
+        return capture;
     }
 
     public String toString() {

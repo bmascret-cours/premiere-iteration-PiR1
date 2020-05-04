@@ -26,8 +26,8 @@ public class LauncherGUI {
 	 */
 	public static void main(String[] args) {
 
-		ChessGame chessGame;	
-		ChessGameControlers chessGameControler;
+		ChessGame chessGame;
+		ChessGameControlers  chessGameControler;
 		JFrame frame;	
 		Dimension dim;
 	
